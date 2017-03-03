@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Google maps API tut</title>
+	<style type="text/css">
+		html { height: 100%; }
+		body {
+			font-family: Arial, sans-serif;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+		#map {height:100%}
+	</style>
+	<script>
+		var map;
+
+		/* We need a initialized js function to load the map. This function contains everything that will happen after the page loads, but before the user interacts with the map */
+
+		function initMap() {
+			//Constructor creates a new map - only center and zoom are required.
+			map = new google.maps.Map(document.getElementById('map'), {
+				//lat long literal
+				center: {lat: 40.7413549, lng: -73.9980244},
+				//max zoom is 21
+				zoom: 13
+			});
+
+			var tribeca = {lat: 40.7413549, lng: -73.9980244};
+			var marker = new google.maps.Marker({
+				position: tribeca,
+				map: map,
+				title: 'First Marker!'
+			});
+
+			var infowindow = new google.maps.InfoWindow({
+				content: 'yasss a window!' + '',
+			}); 
+
+			marker.addListener('click', function() {
+				infowindow.open(map, maker);
+			});
+		};
+	</script>
+
+	<script async defer 
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_-FCSZj83ZLglwBo-bYpk7uhTrty44po&v=3&callback=initMap"></script>
+
+</head>
+
+	<body>
+
+	<div id="map"></div>
+
+	
+	</body>
+</html>

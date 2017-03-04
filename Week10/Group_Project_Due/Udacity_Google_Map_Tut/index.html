@@ -12,7 +12,15 @@
 		}
 		#map {height:100%}
 	</style>
-	<script>
+	
+
+</head>
+
+	<body>
+
+	<div id="map"></div>
+	
+	<script type="text/javascript">
 		var map;
 
 		/* We need a initialized js function to load the map. This function contains everything that will happen after the page loads, but before the user interacts with the map */
@@ -21,37 +29,32 @@
 			//Constructor creates a new map - only center and zoom are required.
 			map = new google.maps.Map(document.getElementById('map'), {
 				//lat long literal
-				center: {lat: 40.7413549, lng: -73.9980244},
+				center: {lat: 40.74135, lng: -73.99802},
 				//max zoom is 21
 				zoom: 13
 			});
 
-			var tribeca = {lat: 40.7413549, lng: -73.9980244};
+			var tribeca = {lat: 40.74135, lng: -73.99802},;
+			
 			var marker = new google.maps.Marker({
 				position: tribeca,
 				map: map,
 				title: 'First Marker!'
 			});
 
+
 			var infowindow = new google.maps.InfoWindow({
-				content: 'yasss a window!' + '',
+				content: 'Hi Mom!'
 			}); 
 
 			marker.addListener('click', function() {
-				infowindow.open(map, maker);
+			  infowindow.open(map, marker);
 			});
-		};
+		}
 	</script>
 
 	<script async defer 
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_-FCSZj83ZLglwBo-bYpk7uhTrty44po&v=3&callback=initMap"></script>
-
-</head>
-
-	<body>
-
-	<div id="map"></div>
-
+		src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyB_-FCSZj83ZLglwBo-bYpk7uhTrty44po&v=3&callback=initMap"></script>
 	
 	</body>
 </html>
